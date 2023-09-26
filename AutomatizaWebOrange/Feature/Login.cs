@@ -38,7 +38,7 @@ namespace AutomatizaWebOrange.Feature
         }
 
         [TestMethod]
-        [TestCategory("CT04")]
+        [TestCategory("CT4")]
         public void ValidarLoginSenhaInvalida()
         {
             LoginSteps.ValidarLoginSenhaInvalida("Admin", "1234");
