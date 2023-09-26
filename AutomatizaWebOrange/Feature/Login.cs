@@ -24,18 +24,21 @@ namespace AutomatizaWebOrange.Feature
         }
 
         [TestMethod]
+        [TestCategory("CT02")]
         public void ValidarLoginUsuarioInvalido()
         {
             LoginSteps.ValidarLoginUsuarioInvalido("Administrador", "admin123");
         }
 
         [TestMethod]
+        [TestCategory("CT03")]
         public void ValidarLoginSemUsuario()
         {
            LoginSteps.ValidarLoginSemUsuario("", "admin123");
         }
 
         [TestMethod]
+        [TestCategory("CT04")]
         public void ValidarLoginSenhaInvalida()
         {
             LoginSteps.ValidarLoginSenhaInvalida("Admin", "1234");
