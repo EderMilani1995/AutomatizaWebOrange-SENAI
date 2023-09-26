@@ -57,6 +57,7 @@ namespace AutomatizaWebOrange.Steps
         public static void ValidarLoginSemSenha(string username, string password)
         {
             Login(username, password);
+
             string LoginSemSenha = Convert.ToString(Driver.FindElement(LoginPage.passwordVazio).Text);
             Assert.AreEqual("Required", LoginSemSenha, "Login não realizado, informe a senha!");
         }
