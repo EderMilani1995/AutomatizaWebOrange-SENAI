@@ -23,7 +23,7 @@ namespace AutomatizaWebOrange.Feature
             WriteLine("QUANDO: ACESSAR O LINK 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'");
             WriteLine("E: PREENCHER OS CAMPOS @USERNAME E @PASSWORD COM USUÁRIO CADASTRADO");
             WriteLine("QUANDO: CLICAR NO BOTÃO [LOGIN]");
-            WriteLine("ENTÃO: O LOGIN DEVE SER REALIZADO COM SUCESSO\")");
+            WriteLine("ENTÃO: O LOGIN DEVE SER REALIZADO COM SUCESSO");
 
             LoginSteps.ValidarLoginComSucesso("Admin", "admin123");
         }
