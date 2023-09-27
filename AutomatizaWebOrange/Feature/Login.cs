@@ -124,7 +124,7 @@ namespace AutomatizaWebOrange.Feature
             WriteLine("ENTÃO: EXIBIRÁ A TELA 'RESET PASSWORD'");
             WriteLine("E: PREENCHER O CAMPO @USERNAME COM USUÁRIO CADASTRADO PARA IDENTIFICAR A CONTA");
             WriteLine("QUANDO: CLICAR NO BOTÃO [CANCEL]");
-            WriteLine("ENTÃO: EXIBIRÁ A TELA PRINCIPAL 'LOGIN' DO SITE");
+            WriteLine("");
 
             LoginSteps.ValidarCancelarResetPasswordPreenchido("Admin");
         }
