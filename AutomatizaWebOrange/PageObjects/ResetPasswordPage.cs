@@ -7,9 +7,12 @@ using OpenQA.Selenium;
 
 namespace AutomatizaWebOrange.PageObjects
 {
-   public class 
+   public class ResetPasswordPage
+    {
+        
+    }
     public class ResetPasswordSucessPage
     {
-        public static By pgResetPassword = By.XPath("/html/body/div[1]/div[1]/div[1]/div/h6");
+        public static By pgResetPasswordSucess = By.XPath("//*[@class='oxd-text oxd-text--h6 orangehrm-forgot-password-title']");
     }
 }

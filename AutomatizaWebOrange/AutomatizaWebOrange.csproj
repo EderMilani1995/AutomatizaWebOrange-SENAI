@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <Compile Remove="Feature\AddEmployee.cs" />
+    <Compile Remove="PageObjects\ResetPasswordPage.cs" />
   </ItemGroup>
 
   <ItemGroup>

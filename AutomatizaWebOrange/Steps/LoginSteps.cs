@@ -16,12 +16,30 @@ namespace AutomatizaWebOrange.Steps
             Driver.FindElement(LoginPage.login).Click();
         }
 
-        public static void ResetPassword(string username)
+        public static void ResetPasswordCancelarResetPassword(string username)
         {
-            Thread.Sleep(2000);
-            Driver.FindElement(LoginPage.resetPassword).Click();
+            
+            Driver.FindElement(LoginPage.linkResetPassword).Click();
             Driver.FindElement(LoginPage.userNameResetPassword).SendKeys(username);
+            Driver.FindElement(LoginPage.botaoResetPassword).Click();
         }
+
+        public static void CancelarResetPasswordPreenchido(string username)
+        {
+            Driver.FindElement(LoginPage.linkResetPassword).Click();
+            Thread.Sleep(3000);
+            Driver.FindElement(LoginPage.userNameResetPassword).SendKeys(username);
+            Driver.FindElement(LoginPage.botaoCancelarResetPassword).Click();
+            Thread.Sleep(3000);
+        }
+        public static void CancelarResetPasswordVazio()
+        {
+            Driver.FindElement(LoginPage.linkResetPassword).Click();
+            Thread.Sleep(3000);
+            Driver.FindElement(LoginPage.botaoCancelarResetPassword).Click();
+            Thread.Sleep(3000);
+        }
+
 
         // Validações:
 
@@ -65,11 +83,40 @@ namespace AutomatizaWebOrange.Steps
             Assert.AreEqual("Required", LoginSemSenha, "Login não realizado, informe a senha!");
         }
 
-        public static void ValidarResetPassword(string username)
+        public static void ValidarExibirTelaResetPassword(string username)
         {
-            ResetPassword(username);
-            string ValidarResetPassword = Convert.ToString(Driver.FindElement(ResetPasswordSucessPage.pgResetPassword).Text);
-            Assert.AreEqual("Reset Password link sent successfully", ValidarResetPassword, "Reset foi realizado com sucesso, acesse seu e-mail para redefinir sua senha!");
+            ResetPasswordCancelarResetPassword(username);
+            string ValidarExibirTelaResetPassword = Convert.ToString(Driver.FindElement(LoginPage.pgResetPassword).Text);
+            Assert.AreEqual("Reset Password", ValidarExibirTelaResetPassword, "A tela foi apresentada com sucesso!");
         }
+
+        public static void ValidarResetPasswordComSucesso(string username)
+        {
+            CancelarResetPasswordPreenchido(username);
+            string ValidarResetPasswordComSucesso = Convert.ToString(Driver.FindElement(LoginPage.pgResetPasswordSucesso).Text);
+            Assert.AreEqual("Reset Password link sent successfully", ValidarResetPasswordComSucesso, "Link enviado com sucesso! Verificar o seu e-mail para realizar o reset!");
+
+        }
+
+        public static void ValidarResetPasswordSemUsuario(string username)
+        {
+            ResetPasswordCancelarResetPassword(username);
+            string ValidarResetPasswordSemUsuario = Convert.ToString(Driver.FindElement(LoginPage.userNameResetVazio).Text);
+            Assert.AreEqual("Required", ValidarResetPasswordSemUsuario, "Envio do link não realizado, informe o usuário!");
+        }
+
+        public static void ValidarCancelarResetPasswordPreenchido(string username)
+        {
+            CancelarResetPasswordPreenchido(username);
+            string ValidarCancelarResetPassword = Convert.ToString(Driver.FindElement(LoginPage.tituloLoginTelaPrincipal).Text);
+            Assert.AreEqual("Login", ValidarCancelarResetPassword, "Cancelamento de reset de password realizado com sucesso!");
+        }
+        public static void ValidarCancelarResetPasswordVazio()
+        {
+            CancelarResetPasswordVazio();
+            string ValidarCancelarResetPassword = Convert.ToString(Driver.FindElement(LoginPage.tituloLoginTelaPrincipal).Text);
+            Assert.AreEqual("Login", ValidarCancelarResetPassword, "Cancelamento de reset de password realizado com sucesso!");
+        }
+
     }
 }

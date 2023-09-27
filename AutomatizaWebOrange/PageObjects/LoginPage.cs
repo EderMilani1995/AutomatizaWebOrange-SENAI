@@ -19,12 +19,24 @@ namespace AutomatizaWebOrange.PageObjects
 
         public static By userNamePasswordInvalido = By.XPath("//*[(text()= 'Invalid credentials')]");
 
-        public static By userNameVazio = By.XPath("//*[@id=\'app\']/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/span"); // Required do campo Username
+        public static By userNameVazio = By.XPath("//*[@id=\'app\']/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/span]"); // Required do campo Username
 
-        public static By passwordVazio = By.XPath("//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/span"); // Required do campo Password
+        public static By passwordVazio = By.XPath("//*[@id=\'app\']/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/span]"); // Required do campo Password
 
-        public static By resetPassword = By.XPath("//*[(text()= 'Forgot your password? ')]");
+        public static By linkResetPassword = By.XPath("//*[(text()= 'Forgot your password? ')]"); // Link para redefir password
 
-        public static By userNameResetPassword = By.XPath("//input[@class=\'oxd-input oxd-input--active\']");
+        public static By pgResetPassword = By.XPath("//*[@class='oxd-text oxd-text--h6 orangehrm-forgot-password-title']"); // Título da página Reset Password
+
+        public static By userNameResetPassword = By.XPath("//input[@class=\'oxd-input oxd-input--active\']");   // Campo Username para redefinir senha
+
+        public static By botaoResetPassword = By.XPath("//*[@class='oxd-button oxd-button--large oxd-button--secondary orangehrm-forgot-password-button orangehrm-forgot-password-button--reset']");    // Botão para realizar o reset do password
+
+        public static By pgResetPasswordSucesso = By.XPath("//*[@class='oxd-text oxd-text--h6 orangehrm-forgot-password-title']"); // Título da página com o envio do link realizado com sucesso
+
+        public static By userNameResetVazio = By.XPath("//*[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message']");    // Required do campo Username na tela de Reset Password
+
+        public static By botaoCancelarResetPassword = By.XPath("//*[@class='oxd-button oxd-button--large oxd-button--ghost orangehrm-forgot-password-button orangehrm-forgot-password-button--cancel']");    // Botão para realizar o cancelamento do reset Password
+
+        public static By tituloLoginTelaPrincipal = By.XPath("//*[@class='oxd-text oxd-text--h5 orangehrm-login-title']");
     }
 }

@@ -75,5 +75,73 @@ namespace AutomatizaWebOrange.Feature
 
             LoginSteps.ValidarLoginSemSenha("Admin", "");
         }
+
+        [TestMethod]
+        [TestCategory("CT06")]
+        public void ValidarExibirResetPassword()
+        {
+            WriteLine("DADO QUE: AO ACESSAR O LINK 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'"); 
+            WriteLine("QUANDO: CLICAR NA OPÇÃO 'FORGOT YOUR PASSWORD?'"); 
+            WriteLine("ENTÃO: EXIBIRÁ A TELA 'RESET PASSWORD'");
+
+            LoginSteps.ValidarExibirTelaResetPassword("");
+        }
+
+        [TestMethod]
+        [TestCategory("CT07")]
+        public void ValidarResetPasswordComSucesso()
+        {
+            WriteLine("DADO QUE: AO ACESSAR O LINK 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'");
+            WriteLine("QUANDO: CLICAR NA OPÇÃO 'FORGOT YOUR PASSWORD?'");
+            WriteLine("ENTÃO: EXIBIRÁ A TELA 'RESET PASSWORD'");
+            WriteLine("E: PREENCHER O CAMPO @USERNAME COM USUÁRIO CADASTRADO PARA IDENTIFICAR A CONTA");
+            WriteLine("QUANDO: CLICAR NO BOTÃO [RESET PASSWORD]");
+            WriteLine("ENTÃO: EXIBIRÁ A TELA COM A MENSAGEM 'Reset Password link sent successfully'");
+
+            LoginSteps.ValidarResetPasswordComSucesso("Admin");
+        }
+
+        [TestMethod]
+        [TestCategory("CT08")]
+        public void ValidarResetPasswordSemUsuario()
+        {
+            WriteLine("DADO QUE: AO ACESSAR O LINK 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'");
+            WriteLine("QUANDO: CLICAR NA OPÇÃO 'FORGOT YOUR PASSWORD?'");
+            WriteLine("ENTÃO: EXIBIRÁ A TELA 'RESET PASSWORD'");
+            WriteLine("E: NÃO PREENCHER O CAMPO @USERNAME");
+            WriteLine("QUANDO: CLICAR NO BOTÃO [RESET PASSWORD]");
+            WriteLine("ENTÃO: O CAMPO 'USERNAME' FICARÁ EM DESTAQUE NA COR VERMELHA E APRESENTARÁ O ALERTA 'REQUIRED'");
+
+            LoginSteps.ValidarResetPasswordSemUsuario("");
+        }
+
+        [TestMethod]
+        [TestCategory("CT09")]
+        public void ValidarCancelarResetPasswordPreenchido()
+        {
+            WriteLine("DADO QUE: AO ACESSAR O LINK 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'");
+            WriteLine("QUANDO: CLICAR NA OPÇÃO 'FORGOT YOUR PASSWORD?'");
+            WriteLine("ENTÃO: EXIBIRÁ A TELA 'RESET PASSWORD'");
+            WriteLine("E: PREENCHER O CAMPO @USERNAME COM USUÁRIO CADASTRADO PARA IDENTIFICAR A CONTA");
+            WriteLine("QUANDO: CLICAR NO BOTÃO [CANCEL]");
+            WriteLine("ENTÃO: EXIBIRÁ A TELA PRINCIPAL 'LOGIN' DO SITE");
+
+            LoginSteps.ValidarCancelarResetPasswordPreenchido("Admin");
+        }
+
+        [TestMethod]
+        [TestCategory("CT10")]
+        public void ValidarCancelarResetPasswordVazio()
+        {
+            WriteLine("DADO QUE: AO ACESSAR O LINK 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'");
+            WriteLine("QUANDO: CLICAR NA OPÇÃO 'FORGOT YOUR PASSWORD?'");
+            WriteLine("ENTÃO: EXIBIRÁ A TELA 'RESET PASSWORD'");
+            WriteLine("E: NÃO PREENCHER O CAMPO @USERNAME");
+            WriteLine("QUANDO: CLICAR NO BOTÃO [CANCEL]");
+            WriteLine("ENTÃO: EXIBIRÁ A TELA PRINCIPAL 'LOGIN' DO SITE");
+
+            LoginSteps.ValidarCancelarResetPasswordVazio();
+        }
+
     }
 }
