@@ -11,13 +11,16 @@ namespace AutomatizaWebOrange.Steps
     {
         public static void Login(string username, string password)  // Teste para realizar o login com sucesso
         {
-            Thread.Sleep(3000);
             Driver.FindElement(LoginPage.username).SendKeys(username);
-            Thread.Sleep(3000);
             Driver.FindElement(LoginPage.password).SendKeys(password);
-            Thread.Sleep(3000);
             Driver.FindElement(LoginPage.login).Click();
-            Thread.Sleep(3000);
+        }
+
+        public static void ResetPassword(string username)
+        {
+            Thread.Sleep(2000);
+            Driver.FindElement(LoginPage.resetPassword).Click();
+            Driver.FindElement(LoginPage.userNameResetPassword).SendKeys(username);
         }
 
         // Validações:
@@ -62,11 +65,11 @@ namespace AutomatizaWebOrange.Steps
             Assert.AreEqual("Required", LoginSemSenha, "Login não realizado, informe a senha!");
         }
 
-        //public static void ValidarResetPassword()
-        //{
-        //    ResetPassword();
-        //    string ValidarResetPassword = Convert.ToString(Driver.FindElement(ResetPasswordSucessPage.pgResetPassword).Text);
-        //    Assert.AreEqual("Reset Password link sent successfully", ValidarResetPassword, "Reset foi realizado com sucesso, acesse seu e-mail para redefinir sua senha!");
-        //}
+        public static void ValidarResetPassword(string username)
+        {
+            ResetPassword(username);
+            string ValidarResetPassword = Convert.ToString(Driver.FindElement(ResetPasswordSucessPage.pgResetPassword).Text);
+            Assert.AreEqual("Reset Password link sent successfully", ValidarResetPassword, "Reset foi realizado com sucesso, acesse seu e-mail para redefinir sua senha!");
+        }
     }
 }
