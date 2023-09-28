@@ -80,8 +80,10 @@ namespace AutomatizaWebOrange.Feature
         [TestCategory("CT06")]
         public void ValidarExibirResetPassword()
         {
-            WriteLine("DADO QUE: AO ACESSAR O LINK 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'"); 
-            WriteLine("QUANDO: CLICAR NA OPÇÃO 'FORGOT YOUR PASSWORD?'"); 
+            WriteLine("DADO QUE: AO ACESSAR O LINK 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'");
+            WriteLine("E: PREENCHER O CAMPO @USERNAME COM USUÁRIO CADSATRADO PREVIAMENTE");
+            WriteLine("E: NÃO SABER O CAMPO @PASSWORD PREEVIAMENTE CADASTRADO");
+            WriteLine("QUANDO: CLICAR NO BOTÃO [FORGOT YOUR PASSWORD?]"); 
             WriteLine("ENTÃO: EXIBIRÁ A TELA 'RESET PASSWORD'");
 
             LoginSteps.ValidarExibirTelaResetPassword("");

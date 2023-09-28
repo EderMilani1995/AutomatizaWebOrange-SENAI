@@ -63,7 +63,7 @@ namespace AutomatizaWebOrange.Steps
         {
             Login(username, password);
 
-            string LoginSemUsuario = Convert.ToString(Driver.FindElement(LoginPage.userNameVazio).Text);
+            string LoginSemUsuario = Convert.ToString(Driver.FindElement(LoginPage.userNamePasswordVazio).Text);
             Assert.AreEqual("Required", LoginSemUsuario, "Login não realizado, informe o usuário!");
         }
 
@@ -79,7 +79,7 @@ namespace AutomatizaWebOrange.Steps
         {
             Login(username, password);
 
-            string LoginSemSenha = Convert.ToString(Driver.FindElement(LoginPage.passwordVazio).Text);
+            string LoginSemSenha = Convert.ToString(Driver.FindElement(LoginPage.userNamePasswordVazio).Text);
             Assert.AreEqual("Required", LoginSemSenha, "Login não realizado, informe a senha!");
         }
 
