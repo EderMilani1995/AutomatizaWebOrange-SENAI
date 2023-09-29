@@ -17,5 +17,13 @@ namespace AutomatizaWebOrange.Feature
         {
             PIMSteps.ValidarTelaPIM("Admin", "admin123");
         }
+
+        [TestMethod]
+        [TestCategory("CT02")]
+        public void ValidarCamposEmployeeInformation()
+        {
+            
+            
+        }
     }
 }

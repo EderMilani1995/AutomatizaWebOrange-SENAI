@@ -15,7 +15,7 @@ namespace AutomatizaWebOrange.Steps
             Driver.FindElement(LoginPage.password).SendKeys(password);
             Driver.FindElement(LoginPage.login).Click();
             Thread.Sleep(3000);
-            Driver.FindElement(PIMPage.pgPIM).Click();
+            Driver.FindElement(PIMPage.btPIM).Click();
             Thread.Sleep(3000);
         }
 
@@ -26,7 +26,13 @@ namespace AutomatizaWebOrange.Steps
             Login(username, password);
             string ValidarTelaPIM = "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList";
             string ValidarTelaDashboard = Convert.ToString(Driver.Url);
-            Assert.AreEqual(ValidarTelaPIM, ValidarTelaPIM, "Tela PIM exibida com sucesso!");
+            Assert.AreEqual(ValidarTelaPIM, ValidarTelaDashboard, "Tela PIM exibida com sucesso!");
+        }
+
+        public static void ValidarCamposEmployeeInformation(string username, string password)
+        {
+            Login(username,password);
+            
         }
     }
 }
