@@ -22,8 +22,15 @@ namespace AutomatizaWebOrange.Feature
         [TestCategory("CT02")]
         public void ValidarCamposEmployeeInformation()
         {
-            
-            
+            PIMSteps.ValidarCamposEmployeeInformation("Admin", "admin123");
+        }
+
+        [TestMethod]
+        [TestCategory("CT03")]
+        public void ValidarbtEmployeeInformation()
+        {
+
+            PIMSteps.ValidarBtEmployeeInformation("Admin", "admin123", "Vinnie");
         }
     }
 }

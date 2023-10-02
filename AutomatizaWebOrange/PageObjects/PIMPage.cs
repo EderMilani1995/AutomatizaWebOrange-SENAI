@@ -11,30 +11,21 @@ namespace AutomatizaWebOrange.PageObjects
 {
     public class PIMPage : Inicializacao
     {
-        public static By pgPIM = By.XPath("//*[@class='oxd-text oxd-text--h6 oxd-topbar-header-breadcrumb-module']");
+        public static By campoEmployeeName = By.XPath("//*[text()= 'Employee Name']");
 
-        public static By btPIM = By.XPath("//*[@id=\'app\']/div[1]/div[1]/aside/nav/div[2]/ul/li[2]/a");
+        public static By campoEmployeeId = By.XPath("//*[text()= 'Employee Id']");
 
-        public void ValidaCampos(string xpath, string value)
-        {
-            Assert.That(Driver.FindElement(By.XPath(xpath)).Text, Does.Contain(value));
-        }
+        public static By campoEmploymentStatus = By.XPath("//*[text() = 'Employment Status']");
 
-        public void camposEmployeeInformation()
-        {
-            string[] campos =
-            {
-                "Employee Name",
-                "Employee Id",
-                "Employment Status",
-                "Include",
-                "Supervisor Name",
-                "Job Title",
-                "Sub Unit"
-            };
-            for (int i = 0; i < campos.Length; i++)
-                ValidaCampos("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[" + (i + 1) + "]/div/div[1]/label", campos[i]);
-        }
+        public static By campoInclude = By.XPath("//*[text() = 'Include']");
+
+        public static By campoSupervisorName = By.XPath("//*[text() = 'Supervisor Name']");
+
+        public static By campoJobTitle = By.XPath("//*[text()= 'Job Title']");
+
+        public static By campoSubUnit = By.XPath("//*[text()= 'Sub Unit']");
+
+        public static By btEmployeeName = By.XPath("//*[@id=\'app\']/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[1]/div/div[1]/div/div[2]/div/div/input");
 
     }
 
