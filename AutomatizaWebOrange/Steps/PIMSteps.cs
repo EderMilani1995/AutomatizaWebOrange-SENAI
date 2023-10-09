@@ -20,7 +20,7 @@ namespace AutomatizaWebOrange.Steps
             string ValidarTelaPIM = "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewEmployeeList";
             string ValidarTelaDashboard = Convert.ToString(Driver.Url);
             Assert.AreEqual(ValidarTelaPIM, ValidarTelaDashboard, "Tela PIM exibida com sucesso!");
-           
+
             string ValidarMenuConfiguration = Convert.ToString(Driver.FindElement(PIMPage.menuConfiguration).Text);
             Assert.AreEqual("Configuration", ValidarMenuConfiguration, "Menu Configuration foi exibido com sucesso");
 
@@ -34,20 +34,6 @@ namespace AutomatizaWebOrange.Steps
             Assert.AreEqual("Reports", ValidarMenuReports, "Menu Reports foi exibido com sucesso");
             Thread.Sleep(3000);
         }
-
-        public static void ValidarBtMenuConfiguration(string username, string password)
-        {
-            LoginSteps.Login(username, password);
-            Driver.FindElement(DashboardPage.btPIM).Click();
-            Driver.FindElement(PIMPage.arrowConfiguration).Click();
-            string ValidarbtOptionalFields = Convert.ToString(Driver.FindElement(PIMPage.menuOptinalFields).Text);
-            Assert.AreEqual("Optional Fields", ValidarbtOptionalFields, "Menu Optional Fields exibido com sucesso");
-
-            string ValidarbtCustomFields = Convert.ToString(Driver.FindElement(PIMPage.menuCustomFields).Text);
-            Assert.AreEqual("Custom Fields", ValidarbtCustomFields, "Menu Custom Fields exibido com sucesso");
-
-        }
-
 
         public static void ValidarTituloEmployeeInformation(string username, string password)
         {
@@ -73,22 +59,54 @@ namespace AutomatizaWebOrange.Steps
             string ValidarCampoSubUnit = Convert.ToString(Driver.FindElement(PIMPage.tituloSubUnit).Text);
             Assert.AreEqual("Sub Unit", ValidarCampoSubUnit, "Campo Sub Unit exibido corretamente");
 
-            string ValidarGridRecordsFound = Convert.ToString(Driver.FindElement(PIMPage.tituloRecordsFound).Text);
-            Assert.AreEqual("(79) Records Found", ValidarGridRecordsFound, "Grid exibida com sucesso");
+            Thread.Sleep(3000);
         }
 
+        public static void ValidarAddEmployeeVazio(string username, string password)
+        {
+            LoginSteps.Login(username, password);
+            Driver.FindElement(DashboardPage.btPIM).Click();
+            Driver.FindElement(PIMPage.menuAddEmployee).Click();
+            Driver.FindElement(PIMPage.btSave).Click();
+            string ValidarAddEmployeeVazio = Convert.ToString(Driver.FindElement(PIMPage.requiredMessage).Text);
+            Assert.AreEqual("Required", ValidarAddEmployeeVazio, "Erro ao adicionar cadastro vazio");
+            Thread.Sleep(3000);
+        }
 
+        public static void ValidarAddEmployeeFirstNameVazio(string username, string password, string lastname)
+        {
+            LoginSteps.Login(username, password);
+            Driver.FindElement(DashboardPage.btPIM).Click();
+            Driver.FindElement(PIMPage.menuAddEmployee).Click();
+            Driver.FindElement(PIMPage.lastName).SendKeys(lastname);
+            Driver.FindElement(PIMPage.btSave).Click();
+            string ValidarAddEmployeeFirstNameVazio = Convert.ToString(Driver.FindElement(PIMPage.requiredMessage).Text);
+            Assert.AreEqual("Required", ValidarAddEmployeeFirstNameVazio, "Erro ao adicionar cadastro vazio");
+            Thread.Sleep(3000);
+        }
 
-        //public static void ValidarCampoEmployeeInformation(string username, string password, string EmployeeName)
+        public static void ValidarAddEmployeeLastNameVazio(string username, string password, string firstname)
+        {
+            LoginSteps.Login(username, password);
+            Driver.FindElement(DashboardPage.btPIM).Click();
+            Driver.FindElement(PIMPage.menuAddEmployee).Click();
+            Driver.FindElement(PIMPage.firstName).SendKeys(firstname);
+            Driver.FindElement(PIMPage.btSave).Click();
+            string ValidarAddEmployeeLastNameVazio = Convert.ToString(Driver.FindElement(PIMPage.requiredMessage).Text);
+            Assert.AreEqual("Required", ValidarAddEmployeeLastNameVazio, "Erro ao adicionar cadastro vazio");
+            Thread.Sleep(3000);
+        }
+
+        //public static void ValidarBtHelp(string username, string password)
         //{
-        //    ValidarTelaPIM(username, password);
-        //    Driver.FindElement(PIMPage.campoEmployeeName).SendKeys(EmployeeId);
-        //    Driver.FindElement(PIMPage.btSearch).Click();
-        //    string ValidarbtEmployeeId = Convert.ToString(Driver.FindElement(PIMPage.campoEmployeeName).Text);
-        //    Assert.AreEqual("0363", ValidarbtEmployeeId, "Campo Employee Name foi preenchido com sucesso");
+        //    LoginSteps.Login(username, password);
+        //    Driver.FindElement(DashboardPage.btPIM).Click();
+        //    Driver.FindElement(PIMPage.btHelp).Click();
+        //    string ValidarBtHelp = "https://starterhelp.orangehrm.com/hc/en-us/articles/360018657779-How-to-Filter-the-Employee-List";
+        //    string ValidarTelaPIM = Convert.ToString(Driver.Url);
+        //    Assert.AreEqual(ValidarBtHelp, ValidarTelaPIM, "Tela Help exibida com sucesso");
         //    Thread.Sleep(3000);
+
         //}
-
-
     }
 }

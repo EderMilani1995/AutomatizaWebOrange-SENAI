@@ -15,8 +15,8 @@ namespace AutomatizaWebOrange.PageObjects
         public static By menuConfiguration = By.XPath("//*[@id=\'app\']/div[1]/div[1]/header/div[2]/nav/ul/li[1]/span");
 
         public static By arrowConfiguration = By.XPath("//*[@class= 'oxd-icon bi-chevron-down']");
-        public static By menuOptionalFields = By.XPath("//*[@id=\'app\']/div[1]/div[1]/header/div[2]/nav/ul/li[1]/ul/li[1]/a");
-        public static By menuOptinalFields = By.XPath("//*[text() = 'Optional Fields']");
+        
+        public static By menuOptionalFields = By.XPath("/html/body/div[1]/div[1]/div[1]/header/div[2]/nav/ul/li[1]/ul/li[1]/a");
 
         public static By menuCustomFields = By.XPath("//*[text()= 'Custom Fields']");
 
@@ -41,14 +41,16 @@ namespace AutomatizaWebOrange.PageObjects
 
         public static By tituloSubUnit = By.XPath("//*[text()= 'Sub Unit']");
 
-        public static By tituloRecordsFound = By.XPath("//*[text()= '(79) Records Found']");
-
         public static By btSearch = By.XPath("//*[@class= 'oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']");
         #endregion MenuEmployeeList
 
 
         #region MenuAddEmployee
-        public static By menuAddEmployee = By.XPath("//*[text() = 'Add Employee']");
+        public static By menuAddEmployee = By.XPath("//*[text()= 'Add Employee']");
+        public static By btSave = By.XPath("//*[text()= ' Save ']");
+        public static By requiredMessage = By.XPath("//*[text()= 'Required']");
+        public static By firstName = By.XPath("//*[@class= 'oxd-input oxd-input--active orangehrm-firstname']");
+        public static By lastName = By.XPath("//*[@class= 'oxd-input oxd-input--active orangehrm-lastname']");
 
         #endregion MenuAddEmployee
 
@@ -59,7 +61,7 @@ namespace AutomatizaWebOrange.PageObjects
 
         #endregion MenuReports
 
-
+        public static By btHelp = By.XPath("/html/body/div[1]/div[1]/div[1]/header/div[2]/nav/ul/div/button");
 
 
 

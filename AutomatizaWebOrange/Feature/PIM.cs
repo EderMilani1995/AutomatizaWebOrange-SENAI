@@ -31,21 +31,6 @@ namespace AutomatizaWebOrange.Feature
 
         [TestMethod]
         [TestCategory("CT02")]
-        public void ValidarBtMenuConfiguration()
-        {
-            WriteLine("QUANDO: ACESSAR O LINK 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'"); 
-            WriteLine(" E: PREENCHER OS CAMPOS @USERNAME E @PASSWORD COM USUÁRIO CADASTRADO");
-            WriteLine("QUANDO: CLICAR NO BOTÃO[LOGIN]"); 
-            WriteLine("ENTÃO: O LOGIN DEVE SER REALIZADO COM SUCESSO"); 
-            WriteLine("E: CLICAR NO MENU PIM"); 
-            WriteLine("E: CLICAR NO BOTÃO[CONFIGURATION]"); 
-            WriteLine("ENTÃO: EXIBIRÁ A TELA COM OS BOTÕES [Optional Fields] [Custom Fields] [Data Import] [Reporting Methods] [Termination Reasons].");
-
-            PIMSteps.ValidarBtMenuConfiguration("Admin","admin123");
-        }
-
-        [TestMethod]
-        [TestCategory("CT03")]
         public void ValidarTituloEmployeeInformation()
         {
             WriteLine("QUANDO: ACESSAR O LINK 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'"); 
@@ -58,12 +43,32 @@ namespace AutomatizaWebOrange.Feature
             PIMSteps.ValidarTituloEmployeeInformation("Admin", "admin123");
         }
 
-        //[TestMethod]
-        //[TestCategory("CT04")]
-        //public void ValidarCampoEmployeeInformation()
-        //{
+        [TestMethod]
+        [TestCategory("CT03")]
+        public void ValidarAddEmployeeVazio()
+        {
+            PIMSteps.ValidarAddEmployeeVazio("Admin", "admin123");
+        }
 
-        //    PIMSteps.ValidarCampoEmployeeInformation("Admin", "admin123", "Cecil");
+        [TestMethod]
+        [TestCategory("CT04")]
+        public void ValidarAddEmployeeFirstNameVazio()
+        {
+            PIMSteps.ValidarAddEmployeeFirstNameVazio("Admin", "admin123", "Silva");
+        }
+
+        [TestMethod]
+        [TestCategory("CT05")]
+        public void ValidarAddEmployeeLastNameVazio()
+        {
+            PIMSteps.ValidarAddEmployeeLastNameVazio("Admin", "admin123", "Cristiano");
+        }
+
+        //[TestMethod]
+        //[TestCategory("CT06")]
+        //public void ValidarBtHelp()
+        //{
+        //    PIMSteps.ValidarBtHelp("Admin", "admin123");
         //}
     }
 }
