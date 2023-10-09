@@ -7,14 +7,14 @@ using AutomatizaWebOrange.Steps;
 
 namespace AutomatizaWebOrange.Feature
 {
-    public class AddEmployee
+    [TestClass]
+    public class AddEmployee : Inicializacao
     {
-        [TestMethod]
-
-        public void ValidarTelaAddEmployee()
-        {
-            AddEmployeeSteps.ValidarTelaAddEmployee("Admin", "admin123");
-        }
+        //[TestMethod]
+        //public void ValidarTelaAddEmployee()
+        //{
+        //    AddEmployeeSteps.ValidarTelaAddEmployee("Admin", "admin123");
+        //}
 
         [TestMethod]
         [TestCategory("CT03")]

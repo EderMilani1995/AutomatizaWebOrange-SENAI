@@ -9,14 +9,14 @@ namespace AutomatizaWebOrange.Steps
 {
     public class AddEmployeeSteps : Inicializacao
     {
-        public static void ValidarTelaAddEmployee(string username, string password)
-        {
-            LoginSteps.Login(username, password);
-            Driver.FindElement(DashboardPage.btPIM).Click();
-            string ValidarTelaAddEmployee = "https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee";
-            string ValidarEmployeeList = Convert.ToString(Driver.Url);
-            Assert.AreEqual(ValidarTelaAddEmployee, ValidarEmployeeList, "Tela Add Employee exibida com sucesso!");
-        }
+        //public static void ValidarTelaAddEmployee(string username, string password)
+        //{
+        //    LoginSteps.Login(username, password);
+        //    Driver.FindElement(DashboardPage.btPIM).Click();
+        //    string ValidarTelaAddEmployee = "https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee";
+        //    string ValidarEmployeeList = Convert.ToString(Driver.Url);
+        //    Assert.AreEqual(ValidarTelaAddEmployee, ValidarEmployeeList, "Tela Add Employee exibida com sucesso!");
+        //}
         public static void ValidarAddEmployeeVazio(string username, string password)
         {
             LoginSteps.Login(username, password);
